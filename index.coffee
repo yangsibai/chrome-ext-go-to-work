@@ -11,9 +11,21 @@ handler = (detail)->
     now = new Date()
     now_hour = now.getHours()
     day = now.getDay()
-    if (day > 0 and day < 6) and (now_hour >= 9 and now_hour < 12) or (now_hour >= 14 and now_hour < 18)
+    if is_weekday(day) and is_work_hour(now_hour)
         return {
             redirectUrl: page
         }
+
+is_weekday = (day)->
+    return day > 0 and day < 6
+
+is_work_hour = (hour)->
+    return is_morning(hour) or is_afternoon(hour)
+
+is_morning = (hour)->
+    return hour >= 9 and hour < 12
+
+is_afternoon = (hour)->
+    return hour >= 14 and hour < 18
 
 chrome.webRequest.onBeforeRequest.addListener handler, filter, ["blocking"]
