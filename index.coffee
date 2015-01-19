@@ -3,6 +3,7 @@ filter =
         "*://*.zhihu.com/*"
         "*://*.v2ex.com/*"
         "*://*.weibo.com/*"
+        "*://*.sina.com/*"
     ]
 
 page = chrome.extension.getURL("index.html")
