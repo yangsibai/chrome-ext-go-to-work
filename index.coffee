@@ -4,6 +4,11 @@ filter =
         "*://*.v2ex.com/*"
         "*://*.weibo.com/*"
         "*://*.sina.com/*"
+        "*://*.taobao.com/*"
+        "*://*.360buy.com/*"
+        "*://*.jd.com/*"
+        "*://*.dangdang.com/*"
+        "*://*.vancl.com/*"
     ]
 
 page = chrome.extension.getURL("index.html")
