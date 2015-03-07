@@ -1,5 +1,10 @@
-zip go-to-work icons/*
-zip go-to-work index.html
-zip go-to-work index.js
-zip go-to-work manifest.json
+#!/bin/sh
+
+package="go-to-work.zip"
+
+rm $package
+zip $package icons/*
+zip $package index.html
+zip $package index.js
+zip $package manifest.json
 
