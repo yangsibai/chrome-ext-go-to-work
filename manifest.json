@@ -1,8 +1,8 @@
 {
   "name": "Go back to work",
   "manifest_version": 2,
-  "version": "0.1.4",
-  "description": "Make you go to work!",
+  "version": "0.2.0",
+  "description": "Drive you to work!",
   "permissions": [
     "webRequest",
     "webRequestBlocking",
