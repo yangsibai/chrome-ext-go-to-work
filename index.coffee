@@ -59,7 +59,8 @@ is_holiday = (date)->
             return current_date_time is new Date("#{year}.#{holiday}").getTime()
         else
             startTime = new Date("#{year}.#{holiday.split('-')[0]}").getTime()
-            endTime = new Date("#{year}.#{holiday.split('-')[1]}").getTime()
+            endDay = new Date("#{year}.#{holiday.split('-')[1]}")
+            endTime = endDay.setDate(endDay.getDate() + 1).getTime();
             return current_date_time.between(startTime, endTime)
     return false
 
