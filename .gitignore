@@ -3,3 +3,5 @@
 *.js
 *.map
 *.zip
+node_modules/
+build/

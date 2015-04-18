@@ -1,0 +1,23 @@
+{
+  "name": "chrome-ext-go-to-work",
+  "version": "0.2.1",
+  "description": "Drive you to work",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yangsibai/chrome-ext-go-to-work.git"
+  },
+  "author": "massimo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yangsibai/chrome-ext-go-to-work/issues"
+  },
+  "homepage": "https://github.com/yangsibai/chrome-ext-go-to-work",
+  "devDependencies": {
+    "mocha": "^2.2.4",
+    "should": "^6.0.1"
+  }
+}
