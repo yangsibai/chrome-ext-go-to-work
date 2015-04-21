@@ -26,7 +26,7 @@ handler = (detail)->
             redirectUrl: chrome.extension.getURL("index.html")
         }
 
-chrome.webRequest.onBeforeRequest.addListener handler, filter, ["blocking"]
+chrome?.webRequest?.onBeforeRequest?.addListener handler, filter, ["blocking"]
 
 ###
     date is a workday
@@ -35,7 +35,7 @@ chrome.webRequest.onBeforeRequest.addListener handler, filter, ["blocking"]
     3. or is Monday ~ Friday
 ###
 is_workday = (date)->
-    return false if is_holiday(date)
+    return false if _isLegalHoliday(date)
     return is_special_work_day(date) or is_weekday(date.getDay())
 
 ###
@@ -48,7 +48,7 @@ get_date_time = (date)->
 ###
     date is holiday
 ###
-is_holiday = (date)->
+_isLegalHoliday = (date)->
     year = date.getFullYear() + ""
     return false unless HOLIDAY_CONFIG[year]
     holiday_config = HOLIDAY_CONFIG[year].holiday
@@ -94,3 +94,9 @@ is_morning = (hour)->
 
 is_afternoon = (hour)->
     return hour >= 14 and hour < 18
+
+
+if typeof module isnt 'undefined' and module.exports
+    exports.isLegalHoliday = _isLegalHoliday
+    exports.isWorkDay = is_workday
+    exports.isWorkHour = is_work_hour
