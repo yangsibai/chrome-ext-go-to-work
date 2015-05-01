@@ -12,3 +12,5 @@ module.exports =
         '#legal holiday':
             '2015-4-5 should be a legal holiday': ->
                 lib.isLegalHoliday(new Date('2015-4-5')).should.be.ok
+            '2015-5-1 should be a legal holiday': ->
+                lib.isLegalHoliday(new Date('2015-5-1')).should.be.ok

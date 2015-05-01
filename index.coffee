@@ -23,7 +23,7 @@ handler = (detail)->
     now = new Date()
     if is_workday(now) and is_work_hour(now.getHours())
         return {
-            redirectUrl: chrome.extension.getURL("index.html")
+        redirectUrl: chrome.extension.getURL("index.html")
         }
 
 chrome?.webRequest?.onBeforeRequest?.addListener handler, filter, ["blocking"]
@@ -56,13 +56,13 @@ _isLegalHoliday = (date)->
     current_date_time = get_date_time(date)
     for holiday in holidays
         if holiday.indexOf('-') is -1
-            return current_date_time is new Date("#{year}.#{holiday}").getTime()
+            return true if current_date_time is new Date("#{year}.#{holiday}").getTime()
         else
             startTime = new Date("#{year}.#{holiday.split('-')[0]}").getTime()
             endDay = new Date("#{year}.#{holiday.split('-')[1]}")
             endDay.setDate(endDay.getDate() + 1)
             endTime = endDay.getTime()
-            return current_date_time.between(startTime, endTime)
+            return true if current_date_time.between(startTime, endTime)
     return false
 
 is_special_work_day = (date)->
@@ -73,11 +73,11 @@ is_special_work_day = (date)->
     current_date_time = get_date_time(date)
     for workday in workdays
         if workday.indexOf('-') is -1
-            return current_date_time is new Date("#{year}.#{workday}").getTime()
+            return true if current_date_time is new Date("#{year}.#{workday}").getTime()
         else
             startTime = new Date("#{year}.#{workday.split('-')[0]}").getTime()
             endTime = new Date("#{year}.#{workday.split('-')[1]}").getTime()
-            return current_date_time.between(startTime, endTime)
+            return true if current_date_time.between(startTime, endTime)
     return false
 
 parse_str_to_date = (year, date)->
