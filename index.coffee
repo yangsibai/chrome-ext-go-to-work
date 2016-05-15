@@ -20,11 +20,7 @@ HOLIDAY_CONFIG =
         "workday": "1.4,2.15,2.28,10.10"
 
 handler = (detail)->
-    now = new Date()
-    if is_workday(now) and is_work_hour(now.getHours())
-        return {
-        redirectUrl: chrome.extension.getURL("index.html")
-        }
+    redirectUrl: chrome.extension.getURL("index.html?src=") + encodeURIComponent(detail.url)
 
 chrome?.webRequest?.onBeforeRequest?.addListener handler, filter, ["blocking"]
 

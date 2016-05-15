@@ -1,7 +1,7 @@
 {
   "name": "Go back to work",
   "manifest_version": 2,
-  "version": "0.2.3",
+  "version": "0.3.0",
   "description": "Drive you to work!",
   "permissions": [
     "webRequest",
